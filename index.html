@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0F0A1E">
+<title>Екатерина Филатова — нейросети для бизнеса</title>
+<meta name="description" content="Настройка AI-инструментов под ваш бизнес: карточки для маркетплейсов, SEO, лендинги, чат-боты, контент-план. Запуск от 3 дней. Без сложных терминов.">
+<meta property="og:title" content="Екатерина Филатова — нейросети для бизнеса">
+<meta property="og:description" content="Настройка AI-инструментов под ваш бизнес. Запуск от 3 дней. Без сложных терминов.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237C3AED'/%3E%3Cstop offset='0.5' stop-color='%23EC4899'/%3E%3Cstop offset='1' stop-color='%23FB923C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ccircle cx='10' cy='11' r='2.5' fill='white'/%3E%3Ccircle cx='22' cy='11' r='2.5' fill='white'/%3E%3Ccircle cx='16' cy='22' r='2.5' fill='white'/%3E%3Cline x1='10' y1='11' x2='22' y2='11' stroke='white' stroke-width='1.5' opacity='0.85'/%3E%3Cline x1='10' y1='11' x2='16' y2='22' stroke='white' stroke-width='1.5' opacity='0.85'/%3E%3Cline x1='22' y1='11' x2='16' y2='22' stroke='white' stroke-width='1.5' opacity='0.85'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  background: #0F0A1E;
+  color: #E5E1F0;
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body::before, body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+body::before {
+  width: 620px; height: 620px;
+  background: radial-gradient(circle, #7C3AED 0%, transparent 70%);
+  top: -220px; left: -220px;
+}
+body::after {
+  width: 720px; height: 720px;
+  background: radial-gradient(circle, #EC4899 0%, transparent 70%);
+  top: 28%; right: -320px;
+}
+.glow-3 {
+  position: fixed;
+  width: 520px; height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FB923C 0%, transparent 70%);
+  filter: blur(140px);
+  opacity: 0.28;
+  bottom: -220px; left: 22%;
+  pointer-events: none;
+  z-index: 0;
+}
+.glow-4 {
+  position: fixed;
+  width: 480px; height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #EC4899 0%, transparent 70%);
+  filter: blur(140px);
+  opacity: 0.22;
+  top: 55%; left: -180px;
+  pointer-events: none;
+  z-index: 0;
+}
+main, header, footer { position: relative; z-index: 1; }
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+input, select, textarea { font: inherit; }
+
+h1, h2, h3, h4 {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+h1 { font-size: clamp(32px, 5.4vw, 60px); }
+h2 { font-size: clamp(28px, 4vw, 44px); }
+h3 { font-size: clamp(20px, 2.2vw, 23px); font-weight: 700; letter-spacing: -0.01em; }
+.gradient-text {
+  background: linear-gradient(135deg, #7C3AED 0%, #EC4899 50%, #FB923C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 100px 0;
+  scroll-margin-top: 80px;
+  position: relative;
+}
+@media (max-width: 768px) {
+  section { padding: 64px 0; scroll-margin-top: 72px; }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 30px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: transform 0.2s, box-shadow 0.3s, background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+  cursor: pointer;
+  text-align: center;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #7C3AED 0%, #EC4899 50%, #FB923C 100%);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
+  animation: pulse 3s ease-in-out infinite, gradient-shift 6s ease infinite;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(236, 72, 153, 0.6);
+}
+.btn-primary:active { transform: translateY(0); }
+.btn-secondary {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.28);
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4), 0 0 0 0 rgba(236, 72, 153, 0.3); }
+  50% { box-shadow: 0 14px 50px rgba(236, 72, 153, 0.6), 0 0 0 12px rgba(236, 72, 153, 0); }
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 14px 0;
+  background: rgba(15, 10, 30, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: box-shadow 0.3s, background 0.3s, border-color 0.3s;
+}
+.header.scrolled {
+  background: rgba(15, 10, 30, 0.85);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+  border-bottom-color: rgba(255,255,255,0.1);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  cursor: pointer;
+}
+.logo-name {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+.logo-sub {
+  font-size: 11px;
+  color: #B8B0CC;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 3px;
+  font-weight: 500;
+}
+.nav { display: flex; gap: 28px; }
+.nav a {
+  font-size: 15px;
+  font-weight: 500;
+  color: #D5CFE5;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #7C3AED, #EC4899);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+.nav a:hover { color: #fff; }
+.nav a:hover::after { width: 100%; }
+
+.header-right { display: flex; align-items: center; gap: 14px; }
+.socials { display: flex; gap: 8px; }
+.social-link {
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  transition: all 0.25s;
+}
+.social-link:hover {
+  background: linear-gradient(135deg, #7C3AED, #EC4899);
+  transform: translateY(-2px);
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(236, 72, 153, 0.4);
+}
+.header-phone {
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  padding-left: 14px;
+  border-left: 1px solid rgba(255,255,255,0.14);
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.header-phone:hover { color: #EC4899; }
+
+.burger {
+  display: none;
+  width: 42px; height: 42px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+}
+.burger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0; right: 0; bottom: 0;
+  background: rgba(15, 10, 30, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 99;
+  padding: 32px 24px 48px;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.mobile-menu a:hover { color: #EC4899; }
+.mobile-contacts { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+.mobile-contacts-label {
+  font-size: 12px;
+  color: #8076A0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.mobile-contacts a {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  padding: 4px 0;
+  color: #D5CFE5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mobile-contacts a:hover { color: #EC4899; }
+
+@media (max-width: 980px) {
+  .nav, .header-phone { display: none; }
+  .burger { display: flex; }
+}
+@media (max-width: 480px) {
+  .socials { gap: 6px; }
+  .social-link { width: 36px; height: 36px; }
+  .social-link svg { width: 14px; height: 14px; }
+}
+
+.hero { padding-top: 70px; padding-bottom: 80px; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: rgba(124, 58, 237, 0.18);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  font-size: 13px;
+  font-weight: 600;
+  color: #C4B5FD;
+  margin-bottom: 28px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #EC4899;
+  box-shadow: 0 0 12px #EC4899;
+  animation: blink 1.6s ease-in-out infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.hero h1 { margin-bottom: 24px; }
+.hero-sub {
+  font-size: clamp(16px, 1.5vw, 19px);
+  color: #C5BFDB;
+  margin-bottom: 36px;
+  max-width: 540px;
+  line-height: 1.6;
+}
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+.hero-trust {
+  font-size: 14px;
+  color: #B8B0CC;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.hero-trust span { white-space: nowrap; }
+.hero-trust .dot { color: #EC4899; font-weight: 700; font-size: 16px; }
+
+.hero-visual {
+  position: relative;
+  aspect-ratio: 1;
+  max-width: 480px;
+  margin-left: auto;
+  width: 100%;
+}
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  inset: 8%;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.35) 0%, transparent 60%);
+  filter: blur(40px);
+  z-index: -1;
+  animation: heroGlow 4s ease-in-out infinite alternate;
+}
+@keyframes heroGlow {
+  0% { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.08); }
+}
+.hero-visual svg { width: 100%; height: 100%; position: relative; z-index: 1; }
+
+.stats {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.stat-card {
+  padding: 26px 20px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s;
+}
+.stat-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(236, 72, 153, 0.4);
+  background: rgba(255,255,255,0.07);
+  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.2);
+}
+.stat-number {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(30px, 3.6vw, 42px);
+  font-weight: 900;
+  background: linear-gradient(135deg, #7C3AED, #EC4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  line-height: 1;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+.stat-label {
+  font-size: 14px;
+  color: #B8B0CC;
+}
+
+@media (max-width: 920px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero-visual { margin: 0 auto; max-width: 380px; order: -1; }
+  .stats { grid-template-columns: 1fr; margin-top: 48px; gap: 12px; }
+}
+
+.section-head { text-align: center; max-width: 760px; margin: 0 auto 56px; }
+.section-head h2 { margin-bottom: 16px; }
+.section-head p { color: #B8B0CC; font-size: 17px; line-height: 1.6; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.service-card {
+  position: relative;
+  padding: 28px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(236,72,153,0.06));
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(236, 72, 153, 0.4);
+  box-shadow: 0 20px 60px rgba(124, 58, 237, 0.25);
+}
+.service-card:hover::before { opacity: 1; }
+.service-icon {
+  width: 56px; height: 56px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(236,72,153,0.25));
+  border: 1px solid rgba(255,255,255,0.12);
+  margin-bottom: 20px;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+.service-card h3 { margin-bottom: 12px; font-size: 20px; position: relative; z-index: 1; }
+.service-card p {
+  color: #C5BFDB;
+  font-size: 15px;
+  margin-bottom: 16px;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+.service-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #FB923C;
+  margin-bottom: 16px;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+.service-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #EC4899;
+  font-weight: 600;
+  font-size: 15px;
+  transition: gap 0.2s, color 0.2s;
+  align-self: flex-start;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+.service-cta:hover { gap: 12px; color: #FB923C; }
+
+@media (max-width: 900px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 580px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.about-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7C3AED, #EC4899, #FB923C);
+  padding: 4px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(124, 58, 237, 0.4);
+}
+.about-photo::after {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, transparent 60%);
+  filter: blur(20px);
+  z-index: -1;
+}
+.about-photo-inner {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 20%, #2A1F4D 0%, #0F0A1E 100%);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.about-photo-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  position: relative;
+  z-index: 1;
+  animation: photoFadeIn 0.8s ease-out;
+}
+@keyframes photoFadeIn {
+  from { opacity: 0; transform: scale(1.05); }
+  to { opacity: 1; transform: scale(1); }
+}
+.about-text h2 { margin-bottom: 24px; }
+.about-text p {
+  color: #C5BFDB;
+  font-size: 16px;
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+.about-bullets {
+  list-style: none;
+  margin: 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.about-bullets li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 15px;
+  color: #D5CFE5;
+  line-height: 1.5;
+}
+.bullet-mark {
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7C3AED, #EC4899);
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+}
+@media (max-width: 800px) {
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-photo { max-width: 220px; margin: 0 auto; }
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 40px;
+  align-items: start;
+}
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.contact-card:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(236, 72, 153, 0.4);
+  transform: translateX(6px);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.2);
+}
+.contact-card-icon {
+  flex-shrink: 0;
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(236,72,153,0.3));
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.contact-card-text { display: flex; flex-direction: column; min-width: 0; }
+.contact-card-label {
+  font-size: 11px;
+  color: #B8B0CC;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+.contact-card-value {
+  font-weight: 600;
+  color: #fff;
+  font-size: 15px;
+  margin-top: 3px;
+}
+.contact-note {
+  font-size: 14px;
+  color: #D5CFE5;
+  padding: 14px 18px;
+  background: rgba(124,58,237,0.12);
+  border: 1px solid rgba(124,58,237,0.25);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-card {
+  padding: 36px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.form-card h3 { margin-bottom: 8px; }
+.form-sub { color: #B8B0CC; font-size: 15px; margin-bottom: 24px; }
+.form-row { margin-bottom: 16px; position: relative; }
+.form-row label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #D5CFE5;
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+.form-row input, .form-row select {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(15,10,30,0.65);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 15px;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.form-row select { cursor: pointer; }
+.form-row select option { background: #1A1330; color: #fff; }
+.form-row input::placeholder { color: #6B6285; }
+.form-row input:focus, .form-row select:focus {
+  outline: none;
+  border-color: #EC4899;
+  background: rgba(15,10,30,0.85);
+  box-shadow: 0 0 0 4px rgba(236,72,153,0.18);
+}
+.form-row.error input, .form-row.error select {
+  border-color: #EF4444;
+  box-shadow: 0 0 0 4px rgba(239,68,68,0.18);
+}
+.form-error {
+  display: none;
+  font-size: 13px;
+  color: #FCA5A5;
+  margin-top: 6px;
+}
+.form-row.error .form-error { display: block; }
+.honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.btn-submit { width: 100%; margin-top: 8px; }
+.btn-submit:disabled { opacity: 0.75; cursor: not-allowed; animation: none; }
+
+.error-banner {
+  display: none;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  margin-top: 12px;
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 12px;
+  color: #FCA5A5;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.error-banner.show { display: flex; }
+.error-banner a { color: #FCA5A5; font-weight: 700; text-decoration: underline; }
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 24px 0 8px;
+}
+.form-success.show { display: block; }
+.form-success-icon {
+  width: 76px; height: 76px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7C3AED, #EC4899);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
+  animation: successPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes successPop {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.form-success h3 { margin-bottom: 12px; font-size: 22px; }
+.form-success p { color: #B8B0CC; margin-bottom: 24px; font-size: 15px; }
+
+.quick-contacts {
+  margin-top: 22px;
+  padding: 16px 20px;
+  background: rgba(124,58,237,0.12);
+  border: 1px solid rgba(124,58,237,0.25);
+  border-radius: 14px;
+  font-size: 14px;
+  color: #C5BFDB;
+  text-align: center;
+  line-height: 1.7;
+}
+.quick-contacts a {
+  color: #EC4899;
+  font-weight: 600;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+.quick-contacts a:hover { color: #FB923C; }
+.quick-contacts .sep { color: #4A4060; margin: 0 6px; }
+
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .form-card { padding: 26px 22px; }
+}
+
+.footer {
+  padding: 56px 0 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  background: rgba(15,10,30,0.6);
+  position: relative;
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+.footer-tagline {
+  font-size: 14px;
+  color: #B8B0CC;
+  margin-top: 10px;
+  max-width: 420px;
+  line-height: 1.5;
+}
+.footer-mini-cta {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  background: rgba(255,255,255,0.04);
+  background-image: linear-gradient(135deg, #7C3AED, #EC4899, #FB923C), linear-gradient(rgba(255,255,255,0.04), rgba(255,255,255,0.04));
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  -webkit-background-clip: text, padding-box;
+  padding: 14px 22px;
+  border-radius: 14px;
+  border: 1px solid rgba(236,72,153,0.35);
+  transition: all 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: transparent;
+  line-height: 1.3;
+  text-align: center;
+}
+.footer-mini-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(236,72,153,0.35);
+  border-color: rgba(236,72,153,0.6);
+}
+.footer-mini-cta span { color: transparent; -webkit-text-fill-color: transparent; }
+
+.footer-contacts {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.footer-contacts a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #D5CFE5;
+  transition: all 0.2s;
+}
+.footer-contacts a:hover {
+  background: rgba(236,72,153,0.15);
+  border-color: rgba(236,72,153,0.45);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #8076A0;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 16px;
+}
+@media (max-width: 700px) {
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-mini-cta { align-self: flex-start; font-size: 13px; }
+}
+
+.to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7C3AED, #EC4899);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: all 0.3s;
+  box-shadow: 0 10px 28px rgba(236,72,153,0.45);
+  border: 2px solid rgba(255,255,255,0.12);
+}
+.to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.to-top:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(236,72,153,0.6); }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.hero-visual .pulse-center {
+  transform-origin: center;
+  animation: node-pulse 2.8s ease-in-out infinite;
+}
+@keyframes node-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+</style>
+</head>
+<body>
+
+<div class="glow-3" aria-hidden="true"></div>
+<div class="glow-4" aria-hidden="true"></div>
+
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="#top" class="logo" aria-label="На главную">
+      <span class="logo-name">Екатерина Филатова</span>
+      <span class="logo-sub">Нейросети для бизнеса</span>
+    </a>
+    <nav class="nav" aria-label="Главная навигация">
+      <a href="#services">Услуги</a>
+      <a href="#about">Обо мне</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <div class="header-right">
+      <div class="socials">
+        <a href="https://t.me/filatova1990" target="_blank" rel="noopener" class="social-link" aria-label="Telegram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+        </a>
+        <a href="https://vk.ru/filatova90" target="_blank" rel="noopener" class="social-link" aria-label="ВКонтакте">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.847 2.49 2.27 4.675 2.85 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.15-3.574 2.15-3.574.119-.254.305-.491.745-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg>
+        </a>
+        <a href="https://wa.me/79998487641" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        </a>
+        <a href="mailto:katia.chipsanova@yandex.ru" class="social-link" aria-label="E-mail">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+      <a href="https://wa.me/79998487641" target="_blank" rel="noopener" class="header-phone">+7 999 848-76-41</a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#services">Услуги</a>
+    <a href="#about">Обо мне</a>
+    <a href="#contact">Контакты</a>
+    <div class="mobile-contacts">
+      <span class="mobile-contacts-label">Связаться напрямую</span>
+      <a href="https://t.me/filatova1990" target="_blank" rel="noopener">Telegram: @filatova1990</a>
+      <a href="https://vk.ru/filatova90" target="_blank" rel="noopener">ВКонтакте: vk.ru/filatova90</a>
+      <a href="https://wa.me/79998487641" target="_blank" rel="noopener">WhatsApp: +7 999 848-76-41</a>
+      <a href="mailto:katia.chipsanova@yandex.ru">E-mail: katia.chipsanova@yandex.ru</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-eyebrow">AI-инструменты для роста продаж</div>
+        <h1>Пока вы думаете, конкуренты уже забирают ваших клиентов с помощью <span class="gradient-text">нейросетей</span></h1>
+        <p class="hero-sub">Екатерина Филатова настроит AI-инструменты под ваш бизнес: от продающих карточек до чат-ботов, которые принимают заявки, пока вы спите.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary" data-cta="Получить разбор бесплатно">Получить разбор бесплатно</a>
+          <a href="#services" class="btn btn-secondary">Смотреть услуги</a>
+        </div>
+        <div class="hero-trust">
+          <span>Запуск от 3 дней</span>
+          <span class="dot">•</span>
+          <span>Без сложных терминов</span>
+          <span class="dot">•</span>
+          <span>На связи каждый день</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="nodeGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7C3AED"/>
+              <stop offset="0.5" stop-color="#EC4899"/>
+              <stop offset="1" stop-color="#FB923C"/>
+            </linearGradient>
+            <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#7C3AED" stop-opacity="0.6"/>
+              <stop offset="0.5" stop-color="#EC4899" stop-opacity="0.7"/>
+              <stop offset="1" stop-color="#FB923C" stop-opacity="0.6"/>
+            </linearGradient>
+            <radialGradient id="centerGlow" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0" stop-color="#EC4899" stop-opacity="0.7"/>
+              <stop offset="0.5" stop-color="#7C3AED" stop-opacity="0.3"/>
+              <stop offset="1" stop-color="#7C3AED" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <circle cx="200" cy="200" r="120" fill="url(#centerGlow)"/>
+          <g stroke="url(#lineGrad)" stroke-width="1.4" fill="none">
+            <line x1="200" y1="70" x2="110" y2="155"/>
+            <line x1="200" y1="70" x2="290" y2="155"/>
+            <line x1="200" y1="70" x2="200" y2="200"/>
+            <line x1="110" y1="155" x2="200" y2="200"/>
+            <line x1="290" y1="155" x2="200" y2="200"/>
+            <line x1="110" y1="155" x2="60" y2="265"/>
+            <line x1="290" y1="155" x2="340" y2="265"/>
+            <line x1="110" y1="155" x2="200" y2="200"/>
+            <line x1="290" y1="155" x2="200" y2="200"/>
+            <line x1="200" y1="200" x2="110" y2="320"/>
+            <line x1="200" y1="200" x2="290" y2="320"/>
+            <line x1="60" y1="265" x2="110" y2="320"/>
+            <line x1="340" y1="265" x2="290" y2="320"/>
+            <line x1="110" y1="320" x2="200" y2="355"/>
+            <line x1="290" y1="320" x2="200" y2="355"/>
+          </g>
+          <g>
+            <circle cx="200" cy="70" r="11" fill="url(#nodeGrad)"/>
+            <circle cx="110" cy="155" r="9" fill="url(#nodeGrad)"/>
+            <circle cx="290" cy="155" r="9" fill="url(#nodeGrad)"/>
+            <circle cx="60" cy="265" r="7" fill="url(#nodeGrad)"/>
+            <circle cx="340" cy="265" r="7" fill="url(#nodeGrad)"/>
+            <circle cx="110" cy="320" r="9" fill="url(#nodeGrad)"/>
+            <circle cx="290" cy="320" r="9" fill="url(#nodeGrad)"/>
+            <circle cx="200" cy="355" r="7" fill="url(#nodeGrad)"/>
+          </g>
+          <g class="pulse-center">
+            <circle cx="200" cy="200" r="22" fill="url(#nodeGrad)"/>
+            <circle cx="200" cy="200" r="8" fill="#fff" opacity="0.9"/>
+          </g>
+          <g fill="#fff" opacity="0.85">
+            <circle cx="196" cy="66" r="2.5"/>
+            <circle cx="107" cy="152" r="2"/>
+            <circle cx="287" cy="152" r="2"/>
+            <circle cx="107" cy="317" r="2"/>
+            <circle cx="287" cy="317" r="2"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat-card reveal">
+        <div class="stat-number">100+</div>
+        <div class="stat-label">выполненных проектов</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-1">
+        <div class="stat-number">5</div>
+        <div class="stat-label">направлений под ключ</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <div class="stat-number">1 час</div>
+        <div class="stat-label">среднее время ответа</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>5 инструментов, которые начнут приносить <span class="gradient-text">деньги</span> уже в этом месяце</h2>
+      <p>Каждая услуга — конкретный результат для бизнеса. Без воды, без уроков информатики, без отчётов на 40 страниц.</p>
+    </div>
+    <div class="services-grid">
+
+      <article class="service-card reveal">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        </div>
+        <h3>Карточки, которые продают сами</h3>
+        <p>Продающие карточки для Wildberries и Ozon: нейрофотосессия товара, цепляющая инфографика, SEO-описание. Покупатель жмёт «Купить», а не «Подумаю ещё».</p>
+        <div class="service-meta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Запуск от 3 дней
+        </div>
+        <button type="button" class="service-cta" data-service="Создание карточек">Обсудить задачу →</button>
+      </article>
+
+      <article class="service-card reveal reveal-delay-1">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+        <h3>Клиенты находят вас первыми</h3>
+        <p>Вывод сайта в топ Яндекса и Google: сбор семантики, усиление текстов, техническое здоровье сайта. Бесплатный трафик вместо дорогой рекламы.</p>
+        <div class="service-meta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          От 2 недель
+        </div>
+        <button type="button" class="service-cta" data-service="SEO-оптимизация">Обсудить задачу →</button>
+      </article>
+
+      <article class="service-card reveal reveal-delay-2">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Сайт, который превращает клики в заявки</h3>
+        <p>Одностраничник под ключ за 5–7 дней: продуманная структура, продающие тексты, дизайн, приём заявок. Открываете — и сразу идут обращения.</p>
+        <div class="service-meta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Запуск за 5–7 дней
+        </div>
+        <button type="button" class="service-cta" data-service="Лендинг">Обсудить задачу →</button>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="12" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/></svg>
+        </div>
+        <h3>Продавец, который не спит и не болеет</h3>
+        <p>Боты для Telegram и WhatsApp: принимают заявки 24/7, отвечают на типовые вопросы, доводят клиента до оплаты. Без выходных, отпусков и больничных.</p>
+        <div class="service-meta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          От 5 дней
+        </div>
+        <button type="button" class="service-cta" data-service="Чат-бот">Обсудить задачу →</button>
+      </article>
+
+      <article class="service-card reveal reveal-delay-1">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/></svg>
+        </div>
+        <h3>Контент, который цепляет</h3>
+        <p>Готовый план на месяц: рубрики, тексты постов, идеи визуала и хештеги. Открываете — и публикуете. Без мучительного «что бы сегодня выложить».</p>
+        <div class="service-meta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          От 7 дней
+        </div>
+        <button type="button" class="service-cta" data-service="Контент-план">Обсудить задачу →</button>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <div class="about-photo-inner">
+          <img src="photo.jpg" alt="Екатерина Филатова — специалист по нейросетям" loading="lazy" onerror="this.onerror=null;this.style.display='none';this.insertAdjacentHTML('afterend','<svg viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\' style=\'width:65%;height:65%;position:relative;z-index:1\'><circle cx=\'50\' cy=\'42\' r=\'18\' fill=\'%23F5D5C3\'/><ellipse cx=\'50\' cy=\'40\' rx=\'26\' ry=\'22\' fill=\'%237C3AED\' opacity=\'0.85\'/><circle cx=\'44\' cy=\'44\' r=\'1.5\' fill=\'%232A1F4D\'/><circle cx=\'56\' cy=\'44\' r=\'1.5\' fill=\'%232A1F4D\'/></svg>');">
+        </div>
+      </div>
+      <div class="about-text">
+        <h2 class="reveal">Человек, который говорит с нейросетями на <span class="gradient-text">«ты»</span></h2>
+        <p class="reveal">Я пришла в нейросети, когда они ещё не стали мейнстримом — и прошла путь от первых экспериментов с генерацией картинок до системного внедрения AI в реальные бизнес-процессы. Сегодня AI-инструменты экономят моим клиентам сотни часов и десятки тысяч рублей каждый месяц.</p>
+        <p class="reveal">Помогаю предпринимателям перестать бояться «этого вашего ИИ» и начать зарабатывать с его помощью. Беру на себя подбор инструментов, настройку, генерацию контента и обучение команды — вы получаете результат, а не техническую документацию на 40 страниц.</p>
+        <p class="reveal">Верю, что связка «ИИ + живой человек» работает мощнее, чем чистый ИИ: нейросеть делает рутину за секунды, а я добавляю стратегию, смысл и контроль качества. Поэтому мои проекты — не «AI ради AI», а измеримый рост заявок, продаж и свободного времени клиента.</p>
+        <ul class="about-bullets reveal">
+          <li>
+            <span class="bullet-mark" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Применяю нейросети ежедневно в реальных проектах
+          </li>
+          <li>
+            <span class="bullet-mark" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Училась у практиков рынка, а не у теоретиков
+          </li>
+          <li>
+            <span class="bullet-mark" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Объясняю так, что поймёт даже бабушка
+          </li>
+        </ul>
+        <a href="#contact" class="btn btn-secondary reveal">Узнать, что подойдёт вам →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Оставьте заявку — <span class="gradient-text">разберём</span> вашу задачу и посчитаем стоимость бесплатно</h2>
+      <p>Опишите задачу в двух словах — вернусь с разбором, сроками и точной ценой в течение часа.</p>
+    </div>
+    <div class="contact-grid">
+
+      <div class="reveal">
+        <div class="contact-cards">
+          <a href="https://t.me/filatova1990" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+            </div>
+            <div class="contact-card-text">
+              <span class="contact-card-label">Telegram</span>
+              <span class="contact-card-value">@filatova1990</span>
+            </div>
+          </a>
+          <a href="https://vk.ru/filatova90" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.847 2.49 2.27 4.675 2.85 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.15-3.574 2.15-3.574.119-.254.305-.491.745-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg>
+            </div>
+            <div class="contact-card-text">
+              <span class="contact-card-label">ВКонтакте</span>
+              <span class="contact-card-value">vk.ru/filatova90</span>
+            </div>
+          </a>
+          <a href="https://wa.me/79998487641" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            </div>
+            <div class="contact-card-text">
+              <span class="contact-card-label">WhatsApp</span>
+              <span class="contact-card-value">+7 999 848-76-41</span>
+            </div>
+          </a>
+          <a href="mailto:katia.chipsanova@yandex.ru" class="contact-card">
+            <div class="contact-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-card-text">
+              <span class="contact-card-label">E-mail</span>
+              <span class="contact-card-value">katia.chipsanova@yandex.ru</span>
+            </div>
+          </a>
+        </div>
+        <div class="contact-note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Отвечаю в течение часа, с 9:00 до 21:00 по Москве
+        </div>
+      </div>
+
+      <div class="form-card reveal reveal-delay-1">
+        <h3>Заявка</h3>
+        <p class="form-sub">Бесплатный разбор и расчёт стоимости</p>
+
+        <form id="leadForm" novalidate>
+          <div class="form-row" data-field="name">
+            <label for="name">Ваше имя</label>
+            <input type="text" id="name" name="name" placeholder="Анна" autocomplete="name" required>
+            <div class="form-error">Подскажите, как к вам обращаться</div>
+          </div>
+          <div class="form-row" data-field="contact">
+            <label for="contact">Контакт</label>
+            <input type="text" id="contact" name="contact" placeholder="Телефон, Telegram или e-mail" autocomplete="off" required>
+            <div class="form-error">Укажите телефон, Telegram или e-mail</div>
+          </div>
+          <div class="form-row" data-field="task">
+            <label for="task">Что делать</label>
+            <select id="task" name="task" required>
+              <option value="">Выберите задачу</option>
+              <option value="Создание карточек">Создание карточек</option>
+              <option value="SEO-оптимизация">SEO-оптимизация</option>
+              <option value="Лендинг">Лендинг</option>
+              <option value="Чат-бот">Чат-бот</option>
+              <option value="Контент-план">Контент-план</option>
+              <option value="Другая задача">Другая задача</option>
+            </select>
+            <div class="form-error">Выберите задачу — так я смогу точнее ответить</div>
+          </div>
+          <div class="honeypot" aria-hidden="true">
+            <label for="website">Не заполняйте это поле</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">Отправить заявку</button>
+          <div class="error-banner" id="errorBanner" role="alert">
+            <span>Не получилось. Напишите мне в <a href="https://t.me/filatova1990" target="_blank" rel="noopener">Telegram @filatova1990</a> — отвечу сразу!</span>
+          </div>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon" aria-hidden="true">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 id="successTitle">Заявка отправлена!</h3>
+          <p id="successText">Екатерина свяжется с вами в течение часа.</p>
+          <button type="button" class="btn btn-secondary" id="resetFormBtn">Отправить ещё одну</button>
+        </div>
+
+        <div class="quick-contacts">
+          Быстрее — пишите сразу:
+          <a href="https://t.me/filatova1990" target="_blank" rel="noopener">Telegram @filatova1990</a>
+          <span class="sep">·</span>
+          <a href="https://wa.me/79998487641" target="_blank" rel="noopener">WhatsApp +7 999 848-76-41</a>
+          <span class="sep">·</span>
+          <a href="mailto:katia.chipsanova@yandex.ru">E-mail</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="logo">
+          <span class="logo-name">Екатерина Филатова</span>
+          <span class="logo-sub">Нейросети для бизнеса</span>
+        </div>
+        <p class="footer-tagline">Настраиваю AI-инструменты под ваш бизнес. Без жаргона, с измеримым результатом.</p>
+      </div>
+      <button type="button" class="footer-mini-cta" id="footerMiniCta">
+        <span>Понравился этот сайт? Такой же могу сделать вам →</span>
+      </button>
+    </div>
+    <div class="footer-contacts">
+      <a href="https://t.me/filatova1990" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+        Telegram
+      </a>
+      <a href="https://vk.ru/filatova90" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.847 2.49 2.27 4.675 2.85 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.15-3.574 2.15-3.574.119-.254.305-.491.745-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg>
+        ВКонтакте
+      </a>
+      <a href="https://wa.me/79998487641" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
+      <a href="mailto:katia.chipsanova@yandex.ru">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        E-mail
+      </a>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Екатерина Филатова. Все права защищены.</span>
+      <span>Сделано с нейросетями — и с душой 💜</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Наверх">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+(function () {
+  'use strict';
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var header = document.getElementById('header');
+  var toTop = document.getElementById('toTop');
+  var heroSection = document.querySelector('.hero');
+
+  function onScroll() {
+    var y = window.scrollY || window.pageYOffset;
+    if (header) header.classList.toggle('scrolled', y > 20);
+    if (toTop && heroSection) {
+      var heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+      toTop.classList.toggle('visible', y > heroBottom - 200);
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  if (toTop) {
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  var burger = document.getElementById('burger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  function setMenuOpen(open) {
+    if (!burger || !mobileMenu) return;
+    mobileMenu.classList.toggle('open', open);
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  if (burger) {
+    burger.addEventListener('click', function () {
+      setMenuOpen(!mobileMenu.classList.contains('open'));
+    });
+    mobileMenu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setMenuOpen(false); });
+    });
+  }
+
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  function smoothScrollTo(target) {
+    var top = target.getBoundingClientRect().top + window.scrollY - 70;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var href = a.getAttribute('href');
+      if (!href || href === '#' || href === '#top') {
+        if (href === '#top') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        return;
+      }
+      var target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        smoothScrollTo(target);
+      }
+    });
+  });
+
+  document.querySelectorAll('.service-cta[data-service]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var service = btn.getAttribute('data-service');
+      var select = document.getElementById('task');
+      if (select) select.value = service;
+      var formSection = document.getElementById('contact');
+      if (formSection) {
+        smoothScrollTo(formSection);
+        setTimeout(function () {
+          var nameField = document.getElementById('name');
+          if (nameField) nameField.focus({ preventScroll: true });
+        }, 600);
+      }
+    });
+  });
+
+  var footerMini = document.getElementById('footerMiniCta');
+  if (footerMini) {
+    footerMini.addEventListener('click', function () {
+      var formSection = document.getElementById('contact');
+      if (formSection) smoothScrollTo(formSection);
+    });
+  }
+
+  var form = document.getElementById('leadForm');
+  var submitBtn = document.getElementById('submitBtn');
+  var formEl = form;
+  var formSuccess = document.getElementById('formSuccess');
+  var successTitle = document.getElementById('successTitle');
+  var successText = document.getElementById('successText');
+  var resetBtn = document.getElementById('resetFormBtn');
+  var errorBanner = document.getElementById('errorBanner');
+
+  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxPtkN1pXyVWGQbIweTYLYxAoUqF7dJk6LiVynPQO5ilQH6cWZTIcArFfgT0hcFBjVh/exec';
+  var SUBMIT_TIMEOUT_MS = 10000;
+
+  var submitting = false;
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  function formatDate() {
+    var d = new Date();
+    return pad(d.getDate()) + '.' + pad(d.getMonth() + 1) + '.' + d.getFullYear() + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+  }
+
+  function setError(field, hasError) {
+    var row = form.querySelector('[data-field="' + field + '"]');
+    if (row) row.classList.toggle('error', hasError);
+  }
+
+  function validate() {
+    var ok = true;
+    var name = form.name.value.trim();
+    var contact = form.contact.value.trim();
+    var task = form.task.value;
+    setError('name', !name);
+    setError('contact', !contact);
+    setError('task', !task);
+    if (!name || !contact || !task) ok = false;
+    return ok;
+  }
+
+  form.addEventListener('input', function (e) {
+    var row = e.target.closest('.form-row');
+    if (row && row.classList.contains('error')) {
+      row.classList.remove('error');
+    }
+  });
+  form.addEventListener('change', function (e) {
+    var row = e.target.closest('.form-row');
+    if (row && row.classList.contains('error')) {
+      row.classList.remove('error');
+    }
+  });
+
+  function showSuccess(title, text) {
+    formEl.style.display = 'none';
+    formSuccess.classList.add('show');
+    successTitle.textContent = title;
+    successText.textContent = text;
+  }
+
+  function showForm() {
+    form.reset();
+    formEl.style.display = '';
+    formSuccess.classList.remove('show');
+    errorBanner.classList.remove('show');
+    submitting = false;
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Отправить заявку';
+  }
+
+  resetBtn.addEventListener('click', showForm);
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (submitting) return;
+    if (!validate()) {
+      var firstErr = form.querySelector('.form-row.error input, .form-row.error select');
+      if (firstErr) firstErr.focus();
+      return;
+    }
+
+    if (form.elements['website'] && form.elements['website'].value) {
+      showSuccess('Заявка отправлена!', 'Екатерина свяжется с вами в течение часа.');
+      return;
+    }
+
+    submitting = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Отправляю…';
+    errorBanner.classList.remove('show');
+
+    var data = new URLSearchParams();
+    data.append('Дата заявки', formatDate());
+    data.append('Имя', form.name.value.trim());
+    data.append('Контакт', form.contact.value.trim());
+    data.append('Что делать', form.task.value);
+
+    var send = fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+      body: data,
+      keepalive: true
+    }).catch(function () {
+      try {
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon(SCRIPT_URL, data);
+        }
+      } catch (e) { }
+    });
+
+    var timeout = new Promise(function (resolve) { setTimeout(resolve, SUBMIT_TIMEOUT_MS); });
+
+    Promise.race([send, timeout]).then(function () {
+      showSuccess('Заявка отправлена!', 'Екатерина свяжется с вами в течение часа.');
+    }).catch(function () {
+      submitting = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Отправить заявку';
+      errorBanner.classList.add('show');
+      errorBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
+})();
+</script>
+</body>
+</html>
